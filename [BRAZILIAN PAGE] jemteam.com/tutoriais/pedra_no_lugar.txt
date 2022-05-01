@@ -1,0 +1,38 @@
+Pedra no Lugar Certo.
+
+
+Esse tutorial foi feito para você aprender a fazer uma pedra que se mova, e quando estiver no lugar certo, abrir uma porta por exemplo.
+
+
+Primeiro, vá em Event Mode (F7) e crie um evento, nesse evento coloque uma pedra ou alguma outra coisa. Coloque Common Char Above e Stay Still e Push Key. Nos comandos, coloque um Set Chara's Movement (segundo menu) e coloque em This Event, coloque um Reverse Face Hero, e um Move Foward, e depois um Play SE a sua escolha. Depois coloque um wait de 0.3 segundos. Depois, coloque um Change Variable, aí nos ... coloque Pedra X. Antes do OK, coloque em SET, e coloque em Charac, aí coloque This Event, e X Coordinate. Depois faça outra variable, e coloque nos ... Pedra Y. Depois, coloque em Charac, This Event e coloque Y Coordinate. Deverá ficar assim:
+
+<>Set Chara's Movement: this Event , Reverse Face Hro, Play SE , Foward
+<>Wait:  0.3s.
+<>Variable Op:[001:Pedra X] Set, this Event X pos
+<>Variable Op:[002:Pedra Y] Set, this Event Y pos
+<>
+
+E pronto, essa parte jáe stá pronta.
+
+Agora, crie um novo evento, coloque Stay Still, e não coloque nada como figura. Coloque Parallel Process e Common Char Below.
+Agora o mais complicado, veja onde você quer que a pedra fique e clique lá uma vez, o quadrado vai ficar marcado, e em baixo, vai ter o nome do mapa, e depois as cordenadas, por exemplo (007,007) EV0001, o primeiro 007 é a cordenada X e o segundo é o Y. Então, volte para aquele evento
+e coloque um Fork, coloque em variable como Pedra X, coloca SET 007 e Same e se tiver marcada a opção em baixo, desmarque. Clique em OK.
+Dentro desse Fork, coloque outro Fork, mas nesse, coloque Pedra Y, e coloque 007 também, pois é a segunda cordenada. Aí sim marca a opção lá em baixo.
+Coloque depois no Fork, um Play SE. Depois coloque um change swicth para aparecer a porta. Depois disso coloque um outro switch para o Fork, aí coloque sem nada nos comandos e coloque nos comandos da primeira página um change switch para a segunda página. Vai ficar assim:
+
+<>Fork Optn:Varbl[001:Pedra X]-007
+ <>Fork Optn:varbl[002:Pedra Y]-007
+  <>Play SE:   Kill 5
+  <>Change Switch:  [001:porta]-ON set
+  <>Change Switch:  [002:oFork]-ON set
+  <>
+ :End Case
+ <>
+:End Case
+<>
+
+E pronto! Agora, quando colcoar a pedra no lugar certo a porta se abre! Você pode mudar os comandos depois do Fork, como um de Shake Screen ou coisa assim. Faça a sua vontade :)
+
+
+Tutorial feito por []Hulk[] - Bruno C.   hluk@fnn.net
+Qualquer dúvida me mande um e-mail =)
